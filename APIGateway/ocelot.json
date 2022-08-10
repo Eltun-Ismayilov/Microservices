@@ -1,0 +1,53 @@
+{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/api/Reservation/{everything}", //bura gedir.
+      "DownstreamScheme": "http",
+      "SwaggerKey": "Reservation",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7000 //Reservation
+        }
+      ],
+      "UpstreamPathTemplate": "/reservation/{everything}", //bura muraciet edende 
+      "UpstreamHttpMethod": [ "Get" ]
+    },
+
+    {
+      "DownstreamPathTemplate": "/api/contact/{everything}",
+      "DownstreamScheme": "http",
+      "SwaggerKey": "Contact",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 9000 //Contact
+        }
+      ],
+      "UpstreamPathTemplate": "/contact/{everything}",
+      "UpstreamHttpMethod": [ "Get" ]
+    }
+  ],
+  "SwaggerEndPoints": [
+    {
+      "Key": "Reservation",
+      "Config": [
+        {
+          "Name": "Reservation",
+          "Version": "v1",
+          "Url": "http://localhost:7000/swagger/v1/swagger.json"
+        }
+      ]
+    },
+    {
+      "Key": "Contact",
+      "Config": [
+        {
+          "Name": "Contact",
+          "Version": "v1",
+          "Url": "http://localhost:9000/swagger/v1/swagger.json"
+        }
+      ]
+    }
+  ]
+}
